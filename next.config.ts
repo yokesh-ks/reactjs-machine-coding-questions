@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
+import nextra from 'nextra'
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const withNextra = nextra({
+  contentDirBasePath: '/posts'
+})
 
-export default nextConfig;
+export default withNextra({
+  // ... Add regular Next.js options here
+})

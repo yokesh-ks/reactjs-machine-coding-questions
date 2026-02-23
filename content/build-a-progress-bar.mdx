@@ -1,0 +1,18 @@
+---
+title: Build a Progress Bar
+description: Create an animated progress bar component that visualizes a percentage value with smooth CSS transitions and accessibility support.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useState, CSS transitions, accessibility, beginner]
+level: Easy
+---
+
+## Requirements
+
+Build a progress bar component that:
+- Accepts a `value` prop (0–100) and visually fills the bar proportionally
+- Animates the width change smoothly using CSS transitions when `value` changes
+- Displays the percentage label inside or beside the bar
+- Accepts a `color` prop to support different themes (e.g. success, warning, error)
+- Includes proper ARIA attributes (`role="progressbar"`, `aria-valuenow`, `aria-valuemin`, `aria-valuemax`)
+- Shows an indeterminate animated state when `value` is `null` or `undefined`

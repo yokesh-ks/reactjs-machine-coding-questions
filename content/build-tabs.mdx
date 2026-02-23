@@ -1,0 +1,18 @@
+---
+title: Build a Tabs Component
+description: Create a reusable Tabs component that renders a tab bar and displays the content panel for the active tab.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useState, components, accessibility, intermediate]
+level: Medium
+---
+
+## Requirements
+
+Build a Tabs component that:
+- Accepts a `tabs` prop: an array of `{ label, content }` objects
+- Renders a horizontal tab bar where clicking a tab makes it active and shows its content panel
+- Highlights the active tab with a bottom border or background color
+- Supports a `defaultTab` prop to set the initially active tab
+- Is keyboard accessible: `Tab` key moves focus between tabs, `Enter`/`Space` activates the focused tab
+- Uses correct ARIA roles (`role="tablist"`, `role="tab"`, `role="tabpanel"`, `aria-selected`, `aria-controls`)

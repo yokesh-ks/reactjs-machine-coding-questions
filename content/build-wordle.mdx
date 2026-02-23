@@ -1,0 +1,18 @@
+---
+title: Build Wordle
+description: Implement the Wordle word-guessing game with color-coded feedback, a virtual keyboard, and six-attempt limit.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useState, useEffect, keyboard events, game, advanced]
+level: Difficult
+---
+
+## Requirements
+
+Build a Wordle clone that:
+- Picks a random 5-letter target word from a predefined word list on each game start
+- Renders a 6×5 grid; each row is one guess attempt
+- Accepts keyboard input (physical or an on-screen virtual keyboard) for letter entry and submission
+- Colors each letter tile after submission: **green** (correct position), **yellow** (wrong position), **grey** (not in word)
+- Updates the on-screen keyboard keys with the same color feedback
+- Ends the game when the correct word is guessed (win) or all 6 attempts are used (loss), and reveals the target word

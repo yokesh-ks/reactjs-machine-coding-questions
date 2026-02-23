@@ -1,0 +1,18 @@
+---
+title: Build a Dropdown Component
+description: Implement a custom accessible dropdown menu that opens on click, supports keyboard navigation, and closes on outside click.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useState, useRef, useEffect, accessibility, intermediate]
+level: Medium
+---
+
+## Requirements
+
+Build a custom dropdown component that:
+- Toggles an options list open/closed when the trigger button is clicked
+- Closes when the user clicks anywhere outside the component (using `useRef` + `useEffect`)
+- Supports keyboard navigation: `ArrowDown` / `ArrowUp` to move focus, `Enter` to select, `Escape` to close
+- Displays the currently selected option as the button label (falls back to a placeholder)
+- Accepts an `options` array and an `onChange` callback as props
+- Is accessible with proper `aria-expanded`, `aria-haspopup`, and `role="listbox"` attributes

@@ -24,3 +24,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Hide date from PostCard */
+time,
+.nx-opacity-60,
+[class*="date"],
+[class*="Date"] {
+  display: none !important;
+}

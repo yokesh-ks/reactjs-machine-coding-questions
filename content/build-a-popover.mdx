@@ -1,0 +1,18 @@
+---
+title: Build a Popover
+description: Implement a reusable Popover component that positions floating content relative to a trigger element and dismisses on outside click.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useRef, useEffect, positioning, intermediate]
+level: Medium
+---
+
+## Requirements
+
+Build a popover component that:
+- Renders a trigger element (button) and a floating content panel
+- Toggles the panel open/closed when the trigger is clicked
+- Positions the panel above, below, left, or right of the trigger based on a `placement` prop
+- Adjusts position automatically if the panel would overflow the viewport
+- Closes when the user clicks outside both the trigger and the panel
+- Closes when the `Escape` key is pressed

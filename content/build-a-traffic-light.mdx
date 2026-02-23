@@ -1,0 +1,18 @@
+---
+title: Build a Traffic Light
+description: Implement a traffic light that cycles through red, yellow, and green states on a timer, with manual override controls.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useState, useEffect, setInterval, beginner]
+level: Easy
+---
+
+## Requirements
+
+Build a traffic light component that:
+- Renders three circles stacked vertically representing red, yellow, and green lights
+- Automatically cycles through the sequence red → green → yellow → red every configurable interval (default: 3s green, 1s yellow, 3s red)
+- Illuminates only the active light; the other two remain dimmed
+- Provides Start and Stop buttons to control the automatic cycling
+- Allows manually clicking any light to override the current state and resume cycling from that light
+- Accepts `redDuration`, `yellowDuration`, and `greenDuration` props (in ms)

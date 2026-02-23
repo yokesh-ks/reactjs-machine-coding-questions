@@ -1,0 +1,18 @@
+---
+title: Build a Dark/Light Theme Toggle
+description: Implement a dark/light mode toggle that persists the user's preference to localStorage and applies it via CSS variables.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useState, useEffect, localStorage, CSS variables, beginner]
+level: Easy
+---
+
+## Requirements
+
+Build a theme toggle that:
+- Renders a toggle switch or button to switch between light and dark modes
+- Applies the selected theme by toggling a class or `data-theme` attribute on the `<html>` element
+- Defines light and dark color schemes using CSS custom properties (variables)
+- Persists the user's preference in `localStorage` so it survives page refreshes
+- Reads the persisted preference on initial load; falls back to the OS preference via `prefers-color-scheme`
+- Exposes the theme state via a `useTheme` custom hook for use in nested components

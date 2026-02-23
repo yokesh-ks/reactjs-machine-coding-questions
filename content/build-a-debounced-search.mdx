@@ -1,0 +1,17 @@
+---
+title: Build a Debounced Search
+description: Implement a search input that debounces API calls using useEffect and a custom useDebounce hook.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useEffect, custom hooks, performance, intermediate]
+level: Medium
+---
+
+## Requirements
+
+Build a debounced search input that:
+- Fires an API call only after the user stops typing for 500ms
+- Extracts the debounce logic into a reusable `useDebounce` custom hook
+- Shows a loading spinner while the request is in flight
+- Renders the results list once data arrives
+- Handles the case where a newer request supersedes an older one (race condition)

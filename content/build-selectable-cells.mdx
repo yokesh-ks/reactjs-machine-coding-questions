@@ -1,0 +1,18 @@
+---
+title: Build Selectable Cells
+description: Create a grid of cells that supports single click selection, Shift+click range selection, and Ctrl/Cmd+click multi-selection.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useState, useRef, mouse events, keyboard modifiers, advanced]
+level: Difficult
+---
+
+## Requirements
+
+Build a selectable cells grid that:
+- Renders an N×M grid of cells
+- Clicking a cell selects it and deselects all others (single selection)
+- `Ctrl`/`Cmd` + click toggles a cell's selection without affecting other selected cells
+- `Shift` + click selects the rectangular range between the last clicked cell and the current one
+- Highlights all selected cells with a distinct background color
+- Displays the count of currently selected cells below the grid

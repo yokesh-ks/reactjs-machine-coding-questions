@@ -1,0 +1,18 @@
+---
+title: Build a Modal Dialog
+description: Implement a reusable modal dialog component using React Portal that closes on backdrop click and Escape key.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useEffect, Portal, accessibility, intermediate]
+level: Medium
+---
+
+## Requirements
+
+Build a modal dialog component that:
+- Renders its content via `ReactDOM.createPortal` outside the root DOM tree
+- Opens and closes based on an `isOpen` prop controlled by the parent
+- Closes when the user clicks the backdrop
+- Closes when the user presses the `Escape` key
+- Traps focus inside the modal while it is open
+- Prevents background scroll when the modal is visible

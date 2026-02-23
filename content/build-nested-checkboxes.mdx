@@ -1,0 +1,18 @@
+---
+title: Build Nested Checkboxes
+description: Create a tree of nested checkboxes where parent state reflects children (checked, unchecked, indeterminate) and toggling a parent updates all descendants.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useState, recursion, tree, indeterminate, advanced]
+level: Difficult
+---
+
+## Requirements
+
+Build a nested checkbox tree that:
+- Renders a recursive tree of checkboxes from a nested JSON structure
+- Checking a parent checks all its descendants; unchecking a parent unchecks all descendants
+- Shows a parent checkbox as **indeterminate** when only some of its children are checked
+- Checking all children of a parent automatically checks the parent
+- Unchecking any child of a fully-checked parent sets it to indeterminate (if others remain checked) or unchecked
+- Uses the `ref.indeterminate` DOM property to set the indeterminate visual state on the `<input type="checkbox">`

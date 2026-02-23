@@ -1,0 +1,18 @@
+---
+title: Build an Image Carousel
+description: Create an image carousel with previous/next navigation, auto-play, and dot indicators using React hooks.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useState, useEffect, useRef, intermediate]
+level: Medium
+---
+
+## Requirements
+
+Build an image carousel component that:
+- Accepts an array of image URLs as a prop and displays one image at a time
+- Provides Previous and Next buttons to navigate between images
+- Wraps around from the last image back to the first (and vice versa)
+- Renders dot indicators showing the current image index; clicking a dot navigates to that image
+- Auto-advances to the next image every 3 seconds (pauses on hover)
+- Clears the auto-play interval on unmount to prevent memory leaks

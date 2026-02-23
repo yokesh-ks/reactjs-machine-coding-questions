@@ -1,65 +1,63 @@
-import Image from "next/image";
+import { PostCard } from 'nextra-theme-blog'
+import { getPageMap } from 'nextra/page-map'
+import { MdxFile } from 'nextra'
 
-export default function Home() {
+const LEVELS = ['Easy', 'Medium', 'Difficult'] as const
+type Level = (typeof LEVELS)[number]
+
+const LEVEL_COLORS: Record<Level, { text: string; bg: string; border: string }> = {
+  Easy:      { text: '#15803d', bg: '#dcfce7', border: '#bbf7d0' },
+  Medium:    { text: '#a16207', bg: '#fef9c3', border: '#fef08a' },
+  Difficult: { text: '#b91c1c', bg: '#fee2e2', border: '#fecaca' },
+}
+
+export default async function Home() {
+  const pageMap = await getPageMap('/posts')
+
+  const posts = (pageMap as MdxFile[])
+    .filter((item): item is MdxFile => 'route' in item && !!item.frontMatter?.date)
+    .sort(
+      (a, b) =>
+        new Date(b.frontMatter!.date).getTime() - new Date(a.frontMatter!.date).getTime()
+    )
+
+  const grouped = LEVELS.reduce(
+    (acc, level) => {
+      acc[level] = posts.filter((p) => p.frontMatter?.level === level)
+      return acc
+    },
+    {} as Record<Level, MdxFile[]>
+  )
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="x:container x:px-4 x:py-8">
+      {LEVELS.map((level) =>
+        grouped[level].length > 0 ? (
+          <section key={level} style={{ marginBottom: '2.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+              <h2 style={{ margin: 0, fontWeight: 700, fontSize: '1.25rem', color: LEVEL_COLORS[level].text }}>
+                {level}
+              </h2>
+              <span
+                style={{
+                  padding: '2px 12px',
+                  borderRadius: '9999px',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  color: LEVEL_COLORS[level].text,
+                  background: LEVEL_COLORS[level].bg,
+                  border: `1px solid ${LEVEL_COLORS[level].border}`,
+                }}
+              >
+                {grouped[level].length} questions
+              </span>
+            </div>
+            {grouped[level].map((post) => (
+              <PostCard key={post.route} post={post} />
+            ))}
+          </section>
+        ) : null
+      )}
     </div>
-  );
+  )
 }

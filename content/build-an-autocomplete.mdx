@@ -1,0 +1,18 @@
+---
+title: Build an Autocomplete Input
+description: Implement an autocomplete input with async suggestions, keyboard navigation, and debounced fetching using hooks.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useRef, useEffect, keyboard navigation, advanced]
+level: Difficult
+---
+
+## Requirements
+
+Build an autocomplete input component that:
+- Fetches suggestions from an API with a 300ms debounce on the input
+- Renders a dropdown list of matching suggestions below the input
+- Supports keyboard navigation: `ArrowDown` / `ArrowUp` to move, `Enter` to select, `Escape` to close
+- Populates the input with the selected suggestion and closes the dropdown
+- Handles loading and empty-result states in the dropdown
+- Closes the dropdown when the user clicks outside the component

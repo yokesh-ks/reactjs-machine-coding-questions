@@ -1,0 +1,18 @@
+---
+title: Build Grid Lights
+description: Create an interactive N×M grid where cells toggle on/off on click, with a sequential light-up animation and reset.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useState, useEffect, grid, intermediate]
+level: Medium
+---
+
+## Requirements
+
+Build an interactive grid lights component that:
+- Renders a configurable N×M grid of cells (e.g. 3×3 by default)
+- Turns a cell on (highlighted) when clicked, and keeps track of the order cells were activated
+- Lights up each cell sequentially on a timer (e.g. every 300ms) when the "Play" button is pressed
+- Resets all cells to off when the "Reset" button is pressed
+- Turns off cells one by one in reverse order during the reset animation
+- Accepts `rows` and `cols` as props

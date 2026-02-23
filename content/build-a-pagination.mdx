@@ -1,0 +1,18 @@
+---
+title: Build a Pagination Component
+description: Create a reusable pagination component that slices data client-side and renders page navigation controls.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useState, useMemo, components, intermediate]
+level: Medium
+---
+
+## Requirements
+
+Build a pagination component that:
+- Accepts a large dataset and a `pageSize` prop
+- Displays only the current page's records
+- Renders page number buttons with Previous and Next controls
+- Disables Previous on page 1 and Next on the last page
+- Highlights the active page number
+- Uses `useMemo` to avoid slicing the data on every render

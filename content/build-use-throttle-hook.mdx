@@ -1,0 +1,18 @@
+---
+title: Build a useThrottle Hook
+description: Implement a custom useThrottle hook that limits how frequently a value or callback is updated within a time window.
+date: 2026-02-23
+author: React Machine Coding
+tags: [custom hooks, useRef, useEffect, performance, intermediate]
+level: Medium
+---
+
+## Requirements
+
+Build a custom `useThrottle` hook that:
+- Accepts a `value` and a `delay` (in ms) and returns the throttled version of that value
+- Updates the returned value at most once per `delay` milliseconds, using the leading-edge strategy
+- Cleans up any pending timers on unmount
+- Demonstrates usage with a scroll position tracker that updates a displayed value at most every 200ms
+- Includes a `useThrottleCallback` variant that throttles a function instead of a value
+- Handles `delay` changes gracefully without resetting the throttle window

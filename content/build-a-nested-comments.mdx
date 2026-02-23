@@ -1,0 +1,18 @@
+---
+title: Build a Nested Comments Section
+description: Create a Reddit-style nested comments component that supports adding and deleting replies at any depth using recursion.
+date: 2026-02-23
+author: React Machine Coding
+tags: [recursion, useContext, tree, advanced]
+level: Difficult
+---
+
+## Requirements
+
+Build a nested comments section that:
+- Renders a tree of comments from a nested JSON structure
+- Allows adding a reply to any comment at any depth
+- Allows deleting any comment (and all its descendants)
+- Shows a "Reply" toggle that expands an inline reply input
+- Displays the author name, timestamp, and comment body for each comment
+- Uses `useContext` or prop drilling to share add/delete handlers down the tree

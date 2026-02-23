@@ -1,0 +1,18 @@
+---
+title: Build an Infinite Scroll List
+description: Implement infinite scroll by appending paginated data as the user reaches the bottom using the Intersection Observer API.
+date: 2026-02-23
+author: React Machine Coding
+tags: [useEffect, useRef, IntersectionObserver, advanced]
+level: Difficult
+---
+
+## Requirements
+
+Build an infinite scroll list that:
+- Loads the first page of items on mount
+- Appends the next page when the user scrolls to a sentinel element at the bottom
+- Uses `IntersectionObserver` (not scroll event listeners) to detect the bottom
+- Shows a loading indicator while fetching the next page
+- Stops fetching when all pages have been loaded
+- Handles fetch errors gracefully with a retry option
