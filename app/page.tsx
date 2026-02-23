@@ -1,9 +1,11 @@
-import { PostCard } from 'nextra-theme-blog'
+import { PostCard, BlogMetadata } from 'nextra-theme-blog'
 import { getPageMap } from 'nextra/page-map'
 import { MdxFile } from 'nextra'
 
 const LEVELS = ['Easy', 'Medium', 'Difficult'] as const
 type Level = (typeof LEVELS)[number]
+
+type PostWithMeta = MdxFile & { frontMatter: BlogMetadata }
 
 const LEVEL_COLORS: Record<Level, { text: string; bg: string; border: string }> = {
   Easy:      { text: '#15803d', bg: '#dcfce7', border: '#bbf7d0' },
@@ -15,10 +17,10 @@ export default async function Home() {
   const pageMap = await getPageMap('/posts')
 
   const posts = (pageMap as MdxFile[])
-    .filter((item): item is MdxFile => 'route' in item && !!item.frontMatter?.date)
+    .filter((item): item is PostWithMeta => 'route' in item && !!item.frontMatter?.date)
     .sort(
       (a, b) =>
-        new Date(b.frontMatter!.date).getTime() - new Date(a.frontMatter!.date).getTime()
+        new Date(b.frontMatter.date!).getTime() - new Date(a.frontMatter.date!).getTime()
     )
 
   const grouped = LEVELS.reduce(
@@ -26,7 +28,7 @@ export default async function Home() {
       acc[level] = posts.filter((p) => p.frontMatter?.level === level)
       return acc
     },
-    {} as Record<Level, MdxFile[]>
+    {} as Record<Level, PostWithMeta[]>
   )
 
   return (
